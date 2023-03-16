@@ -1,13 +1,19 @@
 /**
  * 冒泡排序，找出相对大数，不断交换位置，放到最后
+ * 冒泡的优化最好时间复杂度可以优化至O（n）
  */
 import { swapFunc, isRightFunc } from '../tools/basic.js'
 
 function bubbleSort(arr) {
+  let flag = 0
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length - i; j++) {
-      if (arr[j] > arr[j + 1]) swapFunc(arr, j, j + 1)
+      if (arr[j] > arr[j + 1]) {
+        swapFunc(arr, j, j + 1)
+        flag = 1
+      }
     }
+    if (flag === 0) return arr
   }
   return arr
 }
