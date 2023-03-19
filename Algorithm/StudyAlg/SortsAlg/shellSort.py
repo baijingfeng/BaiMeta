@@ -10,13 +10,14 @@ def shellSort(arr):
             while j >= gap and arr[j - gap] > temp:
                 arr[j] = arr[j-gap]
                 j -= gap
-            return
+            arr[j] = temp
+            # print(arr)
         gap //= 2
-        # return
-        # for i in range(gap, n):
 
     return arr
 
+
+print(shellSort([6, 4, 8, 9, 3, 1, 7, 5, 2]))
 # def shell_sort(arr):
 #     n = len(arr)
 #     gap = n // 2
@@ -30,6 +31,3 @@ def shellSort(arr):
 #             arr[j] = temp
 #         gap //= 2
 #     return arr
-
-
-print(shellSort([6, 4, 8, 9, 3, 1, 7, 5, 2]))
