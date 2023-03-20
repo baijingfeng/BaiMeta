@@ -1,4 +1,5 @@
 # 希尔排序
+# 常用序列，2h, 3h + 1 序列
 def shellSort(arr):
     n = len(arr)
     gap = n // 2
@@ -9,7 +10,7 @@ def shellSort(arr):
             temp = arr[i]
             j = i
             while j >= gap and arr[j - gap] > temp:
-                arr[j] = arr[j-gap]
+                arr[j] = arr[j-gap] 
                 j -= gap
             arr[j] = temp
             # print(arr)
