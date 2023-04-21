@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Canvas Text Example</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="300"></canvas>
+  <script>
+    // 获取画布和绘图上下文
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // 设置字体样式
+    ctx.font = "30px Arial";
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+    ctx.textAlign = "center";
+
+    // 描边文本
+    ctx.strokeText("Hello, world!", canvas.width/2, canvas.height/2);
+  </script>
+</body>
+</html>
