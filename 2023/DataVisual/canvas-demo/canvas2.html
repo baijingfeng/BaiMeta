@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Canvas Pie Chart</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="300" height="300"></canvas>
+  <script>
+    // 获取画布和绘图上下文
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // 设置饼状图参数
+    var data = [30, 40, 20, 10]; // 每个扇形所占百分比
+    var colors = ["red", "blue", "green", "yellow"]; // 每个扇形的颜色
+    var total = data.reduce(function(prev, curr) { return prev + curr; }, 0); // 计算总值
+    var cx = canvas.width / 2; // 圆心 x 坐标
+    var cy = canvas.height / 2; // 圆心 y 坐标
+    var radius = Math.min(cx, cy) * 0.8; // 饼状图半径
+
+    // 绘制饼状图
+    var startAngle = 0;
+    for (var i = 0; i < data.length; i++) {
+      var sliceAngle = 2 * Math.PI * data[i] / total;
+      var endAngle = startAngle + sliceAngle;
+
+      ctx.beginPath();
+      ctx.fillStyle = colors[i];
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, radius, startAngle, endAngle);
+      ctx.lineTo(cx, cy);
+      ctx.fill();
+
+      startAngle = endAngle;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
