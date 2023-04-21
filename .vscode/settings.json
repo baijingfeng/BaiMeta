@@ -1,8 +1,5 @@
 {
-  "files.exclude": {
-    "**/dist": true,
-    "**/build": true
-  },
+  "files.exclude": {},
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.tabSize": 2
 }
