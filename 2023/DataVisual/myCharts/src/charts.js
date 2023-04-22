@@ -1,6 +1,7 @@
 import utils from './utils'
 import Cirque from './cirque'
 import myAnimation from './myAnimation'
+import { drawHistogram } from './histogram'
 import { drawAxis, drawPoint, drawBrokenLine, drawDashLine } from './broken'
 
 class MyCharts {
@@ -85,6 +86,17 @@ class MyCharts {
           }
         })
         break;
+      case 'histogram':
+        myAnimation.call(this, {
+          percent: 100,
+          render: (current) => {
+            // 绘制坐标系
+            drawAxis.call(this)
+            // 绘制直方图
+            drawHistogram.call(this, current / 100)
+          }
+        })
+        break
       default:
         console.log('无此功能的绘制')
     }
