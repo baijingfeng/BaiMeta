@@ -1,4 +1,6 @@
 import utils from './utils'
+import Cirque from './cirque'
+import myAnimation from './myAnimation'
 
 class MyCharts {
   constructor(defaultParam) {
@@ -47,7 +49,22 @@ class MyCharts {
   init() {
     switch (this.defaultParam.type) {
       case 'cirque':
-        console.log('绘制圆环')
+        let circleConfig = {
+          x: this.defaultParam.wd / 2,
+          y: this.defaultParam.ht / 2,
+          radius: 200,
+          startAngle: 0,
+          endAngle: 2 * Math.PI,
+          arcWidth: 18,
+          target: 50
+        }
+        this.circleConfig = utils.extendsObj(this.defaultConfig, circleConfig)
+        myAnimation.call(this, {
+          percent: this.circleConfig.target,
+          render: (current) => {
+            Cirque.call(this, current / 100)
+          }
+        })
         break
       default:
         console.log('无此功能的绘制')
