@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Canvas Ball Animation Example</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="300"></canvas>
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // 设置球的初始位置和速度
+    var x = canvas.width/2;
+    var y = canvas.height/2;
+    var vx = 5;
+    var vy = -3;
+    var radius = 20;
+
+    function drawBall() {
+      // 清空画布
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // 绘制球
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI*2);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+
+      // 更新球的位置
+      x += vx;
+      y += vy;
+
+      // 检测球是否碰到边界
+      if (x + radius > canvas.width || x - radius < 0) {
+        vx = -vx;
+      }
+      if (y + radius > canvas.height || y - radius < 0) {
+        vy = -vy;
+      }
+
+      // 重复绘制
+      requestAnimationFrame(drawBall);
+    }
+
+    drawBall();
+  </script>
+</body>
+</html>
