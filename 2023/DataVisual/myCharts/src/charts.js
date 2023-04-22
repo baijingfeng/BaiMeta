@@ -1,7 +1,7 @@
 import utils from './utils'
 import Cirque from './cirque'
 import myAnimation from './myAnimation'
-import { drawAxis } from './broken'
+import { drawAxis, drawPoint } from './broken'
 
 class MyCharts {
   constructor(defaultParam) {
@@ -44,6 +44,9 @@ class MyCharts {
     // 设置合适的画布宽度
     this.defaultParam.wid = this._canvas.width - 20
 
+    // 设置缩放比 
+    this.defaultParam.maxPoint = utils.maxData(this.defaultParam.data) / 0.8
+
     this.init()
   }
 
@@ -73,6 +76,8 @@ class MyCharts {
           render: (current) => {
             // 绘制坐标系
             drawAxis.call(this)
+            // 绘制圆形
+            drawPoint.call(this, current / 200)
           }
         })
         break;
