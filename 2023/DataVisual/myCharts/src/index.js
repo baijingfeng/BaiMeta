@@ -6,7 +6,7 @@ new MyCharts({
   ratio: 1.5,
   type: 'cirque'
 })
-
+ 
 new MyCharts({
   select: '#box2',
   ratio: 1.5,
