@@ -28,7 +28,7 @@
       const material = new THREE.MeshBasicMaterial({ map: texture })
       mesh = new THREE.Mesh(geometry, material)
       scene.add(mesh)
-
+ 
       // 渲染器
       renderer = new THREE.WebGLRenderer({ antialias: true })
       renderer.setSize(window.innerWidth, window.innerHeight)
